@@ -8,6 +8,39 @@ mongoose.promise = Promise;
 const userSchema = new Schema({
   username: { type: String, unique: true, required: true },
   password: { type: String, unique: true, required: true },
+  cityName :  {
+    type: String,
+  },
+  // The safety rating score received from amadeus API
+  scLgbtq: {
+    type: Number
+  },
+  scMedical: {
+    type: Number
+  },
+  scOverall: {
+    type: Number
+  },
+  scPhysicalHarm: {
+    type: Number
+  },
+  scPoliticalFreedom: {
+    type: Number
+
+  },
+  scTheft: {
+    type: Number
+  },
+  scWomen: {
+    type: Number
+  },
+  visited: {
+    type: Boolean,
+    default: false
+  },
+  visitNotes: {
+    type: String
+  }
 });
 
 // Define schema methods
