@@ -8,7 +8,9 @@ mongoose.promise = Promise;
 const userSchema = new Schema({
   username: { type: String, unique: true, required: true },
   password: { type: String, unique: true, required: true },
-  cityName :  {
+  cities: [
+  {
+  name :  {
     type: String,
   },
   // The safety rating score received from amadeus API
@@ -41,6 +43,7 @@ const userSchema = new Schema({
   visitNotes: {
     type: String
   }
+}]
 });
 
 // Define schema methods
