@@ -5,6 +5,9 @@ import Navbar from './components/navbar';
 import Home from './pages/home';
 import Login from './pages/login';
 import Signup from './pages/signUp';
+import About from './pages/about';
+import Safetrip from './pages/safetrip';
+import Wishlist from './pages/wishlist';
 import { LOADING, SET_USER, UNSET_USER } from './store/actions';
 import { useStoreContext } from './store/store';
 
@@ -21,24 +24,34 @@ const App = () => {
         history.push('/');
       } else {
         dispatch({ type: UNSET_USER });
-        history.push('/login');
+        history.push('/safetrip');
       }
     });
   }, [dispatch, history]);
 
   return (
+
     <div>
       <Navbar />
 
-      {state.user ? (
+      {
+
+      state.user ? (
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Safetrip} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/safetrip" component={Safetrip} />
+          <Route exact path="/wishlist" component={Wishlist} />
+          
         </Switch>
       ) : (
         <Switch>
+          <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Redirect to="/login" />
+          <Route exact path="/safetrip" component={Safetrip} />
+          <Route exact path="/wishlist" component={Wishlist} />
+          <Redirect to="/safetrip" />
         </Switch>
       )}
     </div>

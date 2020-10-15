@@ -42,6 +42,7 @@ const Login = () => {
   };
 
   return (
+    <div className="container-fluid col-md-6 mt-5">
     <div className="text-center">
       <h4>Login</h4>
       <form className="form-signin">
@@ -73,6 +74,7 @@ const Login = () => {
           Login
         </button>
       </form>
+    </div>
     </div>
   );
 };

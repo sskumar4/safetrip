@@ -31,6 +31,9 @@ const Navbar = () => {
       <Link to="/" className="btn btn-link text-secondary">
         <span className="text-secondary">home</span>
       </Link>
+      <Link to="/about" className="btn btn-link text-secondary">
+        <span className="text-secondary">about</span>
+      </Link>
       <button
         className="navbar-toggler"
         type="button"
@@ -45,22 +48,26 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           {state.user ? (
+            
             <li className="nav-item active">
-              <Link to="#" className="btn btn-link text-secondary" onClick={logout}>
-                <span className="text-secondary">logout</span>
-              </Link>
+                <Link to="/wishlist" className="btn btn-link">
+                <span className="text-secondary">wish list</span>
+                </Link>
+                <Link to="#" className="btn btn-link text-secondary" onClick={logout}>
+               <span className="text-secondary">logout</span>
+               </Link>
             </li>
           ) : (
             <>
               <li className="nav-item active">
                 <Link to="/login" className="btn btn-link text-secondary">
                   <span className="text-secondary">login</span>
-                </Link>
+              </Link>
               </li>
               <li className="nav-item active">
                 <Link to="/signup" className="btn btn-link">
                   <span className="text-secondary">sign up</span>
-                </Link>
+              </Link>
               </li>
             </>
           )}

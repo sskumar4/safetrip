@@ -1,7 +1,9 @@
 import React from 'react';
 
 const Home = (props) => {
-  return <div>WE ARE LOGGED IN</div>;
+  return <div className="container-fluid col-md-10 mt-5">
+            <h4>Welcome!</h4>
+         </div>;
 };
 
 Home.propTypes = {};

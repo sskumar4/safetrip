@@ -37,6 +37,7 @@ const SignUp = () => {
   };
 
   return (
+    <div className="container-fluid col-md-6 mt-5">
     <div className="text-center">
       <h4>Sign Up</h4>
       <form className="form-signin">
@@ -68,6 +69,7 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
+    </div>
     </div>
   );
 };
