@@ -9,7 +9,6 @@ router.post('/', (req, res) => {
   const { username, password } = req.body;
 
   User.findOne({ username: username }, (err, user) => {
-    console.log('/hit /signup route');
     if (err) {
       console.log('User Create Error: ', err);
       return;
@@ -50,7 +49,6 @@ router.post(
 );
 
 router.get('/', (req, res) => {
-  console.log('hit get on / route');
   if (req.user) {
     res.json({ user: req.user });
   } else {
@@ -59,7 +57,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-  console.log('hit post on /logout route');
   if (req.user) {
     req.logout();
     res.status(200).json({ msg: 'LOGGED OUT' });

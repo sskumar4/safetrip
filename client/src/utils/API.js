@@ -15,6 +15,6 @@ export default {
   // },
   // Saves a book to the database
   saveSafeCity: function(cityData) {
-    return axios.put("/api/users/saveCity", cityData);
+    return axios.post("/api/users/saveCity", cityData);
   }
 };

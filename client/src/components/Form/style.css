@@ -9,7 +9,7 @@ form.login {
 }
 
 .form-box1 {
-  margin-top:10px;
+  margin-top:25px;
   margin-bottom:50px;
   padding: 20px;
   border-radius: 25px;
@@ -19,15 +19,13 @@ form.login {
 }
 
 .form-box2 {
-  margin-top:30px;
+  margin-top:75px;
   margin-bottom:50px;
   padding: 20px;
   border-radius: 25px;
   border: solid;
-  border-color: rgb(63, 6, 6);
+  border-color: #0078E7;
   align-self:center;
   display: flexbox;
   width: 100%;
-  background-color: rgb(241, 232, 232);
-  opacity: 0.5;
 }

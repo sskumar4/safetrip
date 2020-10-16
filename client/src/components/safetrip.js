@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Form from '../components/Form';
+import Form from './Form';
  
 const Safetrip = () => {
     return (
-      <div className="container-fluid col-md-10 mt-5">
+      <div className="container-fluid">
         <h4>Welcome to SafeTrip</h4>
         <p>Cras facilisis urna ornare ex volutpat, et
         convallis erat elementum. Ut aliquam, ipsum vitae
@@ -13,12 +13,14 @@ const Safetrip = () => {
         dis parturient montes, nascetur ridiculus mus.</p>
  
         <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
-        <Form />
-        <button>Sign-up</button>
-        <button>login </button>
 
+       
       </div>
+      
     );
+      
+
+
   }
 
 

@@ -2,8 +2,6 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import Navbar from './components/navbar';
-import Footer from "./components/Footer";
-import Wrapper from "./components/Wrapper";
 import Home from './pages/home';
 import Login from './pages/login';
 import Signup from './pages/signUp';
@@ -35,14 +33,16 @@ const App = () => {
 
     <div>
       <Navbar />
-      {/* <Wrapper> */}
+
       {
+
       state.user ? (
         <Switch>
           <Route exact path="/" component={Safetrip} />
           <Route exact path="/about" component={About} />
           <Route exact path="/safetrip" component={Safetrip} />
           <Route exact path="/wishlist" component={Wishlist} />
+          
         </Switch>
       ) : (
         <Switch>
@@ -54,8 +54,6 @@ const App = () => {
           <Redirect to="/safetrip" />
         </Switch>
       )}
-    {/* </Wrapper>   */}
-    <Footer />
     </div>
   );
 };
