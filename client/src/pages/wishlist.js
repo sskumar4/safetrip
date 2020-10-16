@@ -29,8 +29,8 @@ class Wishlist extends Component {
             key={city.id}
             name={city.name}
             image={city.image}
-            occupation={city.occupation}
-            location={city.location}
+            safetyScore={city.safetyScore}
+            country={city.country}
           />
         ))}
       </Wrapper>
