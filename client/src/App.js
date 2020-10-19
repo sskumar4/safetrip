@@ -2,14 +2,13 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import Navbar from './components/navbar';
-import Footer from "./components/Footer";
-import Wrapper from "./components/Wrapper";
 import Home from './pages/home';
 import Login from './pages/login';
 import Signup from './pages/signUp';
 import About from './pages/about';
 import Safetrip from './pages/safetrip';
 import Wishlist from './pages/wishlist';
+import Footer from './components/Footer';
 import { LOADING, SET_USER, UNSET_USER } from './store/actions';
 import { useStoreContext } from './store/store';
 
@@ -35,14 +34,16 @@ const App = () => {
 
     <div>
       <Navbar />
-      {/* <Wrapper> */}
+
       {
+
       state.user ? (
         <Switch>
           <Route exact path="/" component={Safetrip} />
           <Route exact path="/about" component={About} />
           <Route exact path="/safetrip" component={Safetrip} />
           <Route exact path="/wishlist" component={Wishlist} />
+          
         </Switch>
       ) : (
         <Switch>
@@ -54,8 +55,7 @@ const App = () => {
           <Redirect to="/safetrip" />
         </Switch>
       )}
-    {/* </Wrapper>   */}
-    <Footer />
+      <Footer />
     </div>
   );
 };

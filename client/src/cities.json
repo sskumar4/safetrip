@@ -1,16 +1,3 @@
 [
-  {
-    "id": 1,
-    "name": "Bangalore",
-    "image": "",
-    "Safety Score": "40%",
-    "Country": "India"
-  },
-  {
-    "id": 2,
-    "name": "Barcelona",
-    "image": "",
-    "safetyScore": "40%",
-    "country": "Spain"
-  }
+
 ]

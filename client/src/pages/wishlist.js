@@ -21,7 +21,7 @@ class Wishlist extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>Wish List</Title>
+        {/* <Title>Wish List</Title> */}
         {this.state.cities.map(city => (
           <CityCard
             removeCity={this.removeCity}
@@ -29,8 +29,8 @@ class Wishlist extends Component {
             key={city.id}
             name={city.name}
             image={city.image}
-            safetyScore={city.safetyScore}
-            country={city.country}
+            occupation={city.occupation}
+            location={city.location}
           />
         ))}
       </Wrapper>

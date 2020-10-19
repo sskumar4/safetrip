@@ -4,8 +4,8 @@ import './style.css';
 
 function Form (props) {
 return (
-  <div className="col-md-4">
-    <form className="form-box2 ml-0">
+  <div className="col-md-5">
+    <form className="form-box2">
       <label htmlFor="safeCity"><h6 style={{"fontWeight":"bold"}}></h6></label>
       <select name="cities" id="city-input">
        <option value="Bangalore">Bangalore, India</option>
@@ -17,10 +17,9 @@ return (
        <option value="San Fransisco">San Fransisco, USA</option>
       </select>
       <input className="pure-button pure-button-primary btn1" id="submit" type="submit" value="Submit"/>
-      <p>
-      <button>Sign-up</button>
-      <button>login </button>
-      </p>
+      {/* <p className="text2"><button className="btn1">Sign-up</button> or   
+        <button className="btn1">login</button> to add the city to wish list</p> */}
+      <p className="text2"><a href="">Sign-up</a> or <a href="">login</a> to add the city to a wish list</p>  
     </form>
   </div>
 );
