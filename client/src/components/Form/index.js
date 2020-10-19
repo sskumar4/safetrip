@@ -6,7 +6,7 @@ function Form (props) {
 return (
   <div className="col-md-5">
     <form className="form-box2">
-      <label htmlFor="safeCity"><h6 style={{"fontWeight":"bold"}}>How safe is the city?</h6></label>
+      <label htmlFor="safeCity"><h6 style={{"fontWeight":"bold"}}></h6></label>
       <select name="cities" id="city-input">
        <option value="Bangalore">Bangalore, India</option>
        <option value="Barcelona Spain">Barcelona, Spain</option>
@@ -17,6 +17,9 @@ return (
        <option value="San Fransisco">San Fransisco, USA</option>
       </select>
       <input className="pure-button pure-button-primary btn1" id="submit" type="submit" value="Submit"/>
+      {/* <p className="text2"><button className="btn1">Sign-up</button> or   
+        <button className="btn1">login</button> to add the city to wish list</p> */}
+      <p className="text2"><a href="">Sign-up</a> or <a href="">login</a> to add the city to a wish list</p>  
     </form>
   </div>
 );

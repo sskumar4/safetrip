@@ -8,6 +8,7 @@ import Signup from './pages/signUp';
 import About from './pages/about';
 import Safetrip from './pages/safetrip';
 import Wishlist from './pages/wishlist';
+import Footer from './components/Footer';
 import { LOADING, SET_USER, UNSET_USER } from './store/actions';
 import { useStoreContext } from './store/store';
 
@@ -54,6 +55,7 @@ const App = () => {
           <Redirect to="/safetrip" />
         </Switch>
       )}
+      <Footer />
     </div>
   );
 };

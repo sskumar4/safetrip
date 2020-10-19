@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { LOADING, UNSET_USER } from '../store/actions';
 import { useStoreContext } from '../store/store';
-
+import '../stylesheets/style.css';
 const Navbar = () => {
   const [state, dispatch] = useStoreContext();
   const history = useHistory();
