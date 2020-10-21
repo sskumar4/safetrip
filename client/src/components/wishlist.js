@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import CityCard from "./components/CityCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import cities from "./../cities.json";
+// import cities from "./../cities.json";
 
 class Wishlist extends Component {
   // Setting this.state.cities to the cities json array
@@ -21,6 +21,7 @@ class Wishlist extends Component {
   render() {
     return (
       <Wrapper>
+        <div className="container-fluid col-md-8">
         <Title>Wish List</Title>
         {this.state.cities.map(city => (
           <CityCard
@@ -37,6 +38,7 @@ class Wishlist extends Component {
             scWomen={city.scWomen}
           />
         ))}
+        </div>
       </Wrapper>
     );
   }

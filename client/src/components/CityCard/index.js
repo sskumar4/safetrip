@@ -4,9 +4,9 @@ import "./style.css";
 function CityCard(props) {
   return (
     <div className="card">
-      {/* <div className="img-container">
-        <img alt={props.name} src={props.image} />
-      </div> */}
+      <div className="img-container">
+     
+      </div>
       <div className="content">
         <h6><strong>City Safety Rating</strong></h6>
         <ul>

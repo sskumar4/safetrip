@@ -137,7 +137,9 @@ return (
             placeholder="Enter City Name"
           />
           <button onClick={handleCitySearch}>Submit</button>
-          <p className="text2"><a href="">Sign-up</a> or <a href="">login</a> to add the city to a wish list</p>
+          <p className="text2"><a href="">Sign-up</a> or <a href="">login</a> to add the city to a wish list.<br /> <br />Please use the following cities for testing purposes:<br />
+Bangalore, Barcelona, Berlin, Dallas, London, New York, San Francisco</p>
+          
         </form>
         {citySafetyScores.overall && <CityCard 
          overall = {citySafetyScores.overall}
