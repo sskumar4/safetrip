@@ -18,12 +18,15 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
+    "amadeus": "^5.4.0",
+    "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^3.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.10.8",
+    "node-geocoder": "^3.27.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7"

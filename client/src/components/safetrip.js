@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Form from './Form';
- 
+
+
 const Safetrip = () => {
+  
     return (
       <div className="container-fluid">
-        <h4>Welcome to SafeTrip</h4>
+        <h4>Welcome  to SafeTrip</h4>
         <p>Cras facilisis urna ornare ex volutpat, et
         convallis erat elementum. Ut aliquam, ipsum vitae
         gravida suscipit, metus dui bibendum est, eget rhoncus nibh
