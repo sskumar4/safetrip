@@ -6,15 +6,15 @@ export default {
     return axios.get("/api/users/citySafetyScore");
   },
   
-  getSafeCities: function() {
+  getCities: function() {
     return axios.get("/api/users/safeCities");
   },
   
-  // deleteCity: function(id) {
-  //   return axios.delete("/api/users/" + id);
-  // },
+   deleteCity: function(id) {
+     return axios.put("/api/users/removeCity", { cityId:id});
+   },
  
   saveSafeCity: function(cityData) {
-    return axios.post("/api/users/saveCity", cityData);
+    return axios.put("/api/users/saveCity", cityData);
   }
 };

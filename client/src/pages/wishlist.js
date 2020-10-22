@@ -1,41 +1,89 @@
-import React, { Component } from "react";
+import React, {   useState, useEffect, Component } from "react";
+import API from "../utils/API";
 import CityCard from "./../components/CityCard";
 import Wrapper from "./../components/Wrapper";
 import Title from "./../components/Title";
 import cities from "./../cities.json";
+import {Link,useHistory} from 'react-router-dom';
+import { Input, TextArea, FormBtn } from "../components/Form";
 
-class Wishlist extends Component {
-  // Setting this.state.cities to the cities json array
-  state = {
-    cities
+
+function Wishlist(loggedIn) {
+  const history = useHistory();
+
+// Setting our component's initial state
+const [cities, setCities] = useState([])
+const [formObject, setFormObject] = useState({})
+  // Load all cities and store them with setCities
+  useEffect(() => {
+    loadCities()
+  }, [])
+
+  // Loads all cities and sets them to cities
+  function loadCities() {
+    API.getCities()
+      .then(res => {
+        console.log('wishlist - res',res.data[0]);
+        setCities(res.data[0])
+      }
+      )
+      .catch(err => console.log(err));
   };
 
-  removeCity = id => {
-    // Filter this.state.friends for friends with an id not equal to the id being removed
-    const cities = this.state.cities.filter(friend => friend.id !== id);
-    // Set this.state.friends equal to the new friends array
-    this.setState({ cities });
+ // Deletes a city from the database with a given id, then reloads cities from the db
+  const delCity = (id) => {
+  API.deleteCity(id)
+    .then(res => loadCities())
+    .catch(err => console.log(err));
+} 
+
+ // Handles updating component state when the user types into the input field
+ function handleInputChange(event) {
+  const { name, value } = event.target;
+  setFormObject({...formObject, [name]: value})
+};
+
+ // When the form is submitted, use the API.saveCity method to save the city data
+  // Then reload books from the database
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    if (formObject.title && formObject.author) {
+      API.saveCity({
+        name: formObject.name,
+        overall: 40
+      })
+        .then(res => loadCities())
+        .catch(err => console.log(err));
+    }
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
-  render() {
+
     return (
+      <div className="container-fluid col-md-8 mt-5">
       <Wrapper>
-        {/* <Title>Wish List</Title> */}
-        {this.state.cities.map(city => (
+        <h3>My Travel Destination Wish List</h3>
+        {cities.map(city => (
           <CityCard
-            removeCity={this.removeCity}
+            removeButton={true}
+            saveButton={false}
+            removeCity = {delCity}
             id={city.id}
             key={city.id}
             name={city.name}
-            image={city.image}
-            occupation={city.occupation}
-            location={city.location}
+            overall={city.scOverall}
+            medical={city.scMedical}
+            women={city.scWomen}
+            lgbtq={city.scLgbtq}
+            physicalHarm={city.scPhysicalHarm}
+            politicalFreedom={city.scPoliticalFreedom}
+            theft={city.scTheft}           
+            userLoggedIn={loggedIn}
           />
         ))}
       </Wrapper>
+      </div>
     );
   }
-}
+
 
 export default Wishlist;

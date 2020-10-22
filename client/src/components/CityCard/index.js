@@ -1,14 +1,16 @@
 import React from "react";
 import "./style.css";
+import {Link} from 'react-router-dom';
 
 function CityCard(props) {
+  console.log('CityCard:loggedIn', props.userLoggedIn)
   return (
     <div className="card">
       <div className="img-container">
-     
+      <h6><strong>City Safety Rating</strong></h6>
       </div>
       <div className="content">
-        <h6><strong>City Safety Rating</strong></h6>
+        
         <ul>
           <li>
             <strong>City Name:</strong> {props.name}
@@ -36,9 +38,12 @@ function CityCard(props) {
           </li>
         </ul>
       </div>
-      {props.button && <span onClick={() => props.removeCity(props.id)} className="remove">
+      {props.userLoggedIn && props.removeButton && <span onClick={() => props.removeCity(props.id)} className="remove"> X
       </span>}
-      𝘅
+      {props.userLoggedIn && props.saveButton && <span onClick={() => props.saveFunc(props.id)} className="remove"> Save City
+      </span>}
+      {(!(props.userLoggedIn))  && <span><h6><Link to="/signup">Sign up</Link> or <Link to="/login">Login</Link> save to wishlist</h6>
+      </span>}
     </div>
   );
 }

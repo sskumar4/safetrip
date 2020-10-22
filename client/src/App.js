@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './pages/home';
@@ -15,6 +15,10 @@ import { useStoreContext } from './store/store';
 const App = () => {
   const history = useHistory();
   const [state, dispatch] = useStoreContext();
+  const [loggedInAs, setLoggedInAs] = useState({
+    msg: 'not logged in',
+    loggedOn: false
+  });
 
   useEffect(() => {
     dispatch({ type: LOADING });
@@ -22,6 +26,10 @@ const App = () => {
     axios.get('/api/users').then((response) => {
       if (response.data.user) {
         dispatch({ type: SET_USER, user: response.data.user });
+        setLoggedInAs({
+          msg: response.data.user.username,
+          loggedOn: true
+        });
         history.push('/');
       } else {
         dispatch({ type: UNSET_USER });
@@ -29,20 +37,20 @@ const App = () => {
       }
     });
   }, [dispatch, history]);
-
+  console.log('app.js:loggedIn ', loggedInAs.loggedOn);
   return (
-
+   
     <div>
       <Navbar />
 
       {
-
+      
       state.user ? (
         <Switch>
           <Route exact path="/" component={Safetrip} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/safetrip" component={Safetrip} />
-          <Route exact path="/wishlist" component={Wishlist} />
+          <Route exact path="/safetrip" render={props => <Safetrip {...props} loggedIn={loggedInAs.loggedOn} />} />
+          <Route exact path="/wishlist" render={props => <Wishlist {...props} loggedIn={loggedInAs.loggedOn} />} />
           
         </Switch>
       ) : (
@@ -50,8 +58,10 @@ const App = () => {
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/safetrip" component={Safetrip} />
-          <Route exact path="/wishlist" component={Wishlist} />
+          {/* <Route exact path="/safetrip" render={props => <Safetrip {...props} loggedIn={loggedInAs.loggedOn} />} />
+          <Route exact path="/wishlist" component={Wishlist} /> */}
+           <Route exact path="/safetrip" render={props => <Safetrip {...props} loggedIn={loggedInAs.loggedOn} />} />
+          <Route exact path="/wishlist" render={props => <Wishlist {...props} loggedIn={loggedInAs.loggedOn} />} />
           <Redirect to="/safetrip" />
         </Switch>
       )}

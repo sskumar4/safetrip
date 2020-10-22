@@ -160,4 +160,21 @@ router.put("/removeCity", (req, res) => {
   }
 });
 
+// return safe cities 
+router.get("/safeCities", (req, res) => {
+  //check to see if user is logged in 
+  if (req.user) {
+    //fetch saved cities  from this user only
+    User.findOne(
+      { username: req.user.username }
+
+    ).then(dbUser => {
+      console.log(`successfully fetched safe cities from ${req.user.username}`);
+      res.json([dbUser.cities, req.user]);
+    }).catch(err => {
+      res.json(err);
+    });
+  }
+});
+
 module.exports = router;

@@ -3,9 +3,11 @@ import CityCard from '../CityCard';
 import { useStoreContext } from '../../store/store';
 import React, { useState } from 'react';
 import './style.css';
+import {Link,useHistory} from 'react-router-dom';
 
 
-function Form (props) {
+function Form (loggedIn) {
+  const history = useHistory();
 // Let us have cityInfo as a setState variable, set to empty object
 const [searchCityName, setSearchCityName] = useState({
   "cityName":"",
@@ -13,6 +15,7 @@ const [searchCityName, setSearchCityName] = useState({
 const [citySafetyScores, setCitySafetyScores] = useState({});
 const [state, dispatch] = useStoreContext();
 console.log('State', state);
+console.log('Form:loggedIn', loggedIn)
 // let scLgbtq = 0;
 // let scMedical =0;
 // let scOverall = 0;
@@ -32,7 +35,7 @@ const handleCitySearch = (event) => {
           .then((response) => {
             console.log('response', response);
             console.log('safetyScores', response.data.safetyScores);
-
+            setCitySafetyScores(response.data.safetyScores);
             // for (property in response.data.safetyScores) {
             //   switch (property) {
             //     case 'lgbtq':
@@ -91,7 +94,7 @@ const handleCitySearch = (event) => {
   };
 
   const handleCitySave = (event) => {
-    event.preventDefault();
+   // event.preventDefault();
     // setShow(false);
     console.log('cityName-submit',searchCityName);
     axios
@@ -112,7 +115,7 @@ const handleCitySearch = (event) => {
        .then((response) => {
          console.log('response', response);
           console.log('safetyScores', response.data.safetyScores);
-             setCitySafetyScores(response.data.safetyScores);
+             
             console.log('state var',citySafetyScores);
         })
         .catch((error) => {
@@ -137,7 +140,8 @@ return (
             placeholder="Enter City Name"
           />
           <button onClick={handleCitySearch}>Submit</button>
-          <p className="text2"><a href="">Sign-up</a> or <a href="">login</a> to add the city to a wish list.<br /> <br />Please use the following cities for testing purposes:<br />
+          <p className="text2">
+           <br />Please use the following cities for testing purposes:<br />
 Bangalore, Barcelona, Berlin, Dallas, London, New York, San Francisco</p>
           
         </form>
@@ -151,7 +155,10 @@ Bangalore, Barcelona, Berlin, Dallas, London, New York, San Francisco</p>
          theft = {citySafetyScores.theft}
          name = {searchCityName.cityName}
          saveFunc = {handleCitySave}
-        />}
+         removeButton = {false}
+         saveButton = {true} 
+         userLoggedIn = {loggedIn} 
+         />}
         
       </div>
 );
