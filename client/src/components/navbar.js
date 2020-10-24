@@ -78,13 +78,13 @@ const Navbar = () => {
           )}
         </ul>
         <a className="brand" href="/">
-         <span class="w-100"></span> 
+         <span className="w-100"></span> 
     <img src={safetrip} alt="Safetrip logo" /></a>
         </div>
-    <div class="d-flex w-100 order-0">
-        <div class="w-100">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+    <div className="d-flex w-100 order-0">
+        <div className="w-100">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span className="navbar-toggler-icon"></span>
             </button>
         </div>
         
