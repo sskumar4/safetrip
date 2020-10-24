@@ -1,63 +1,65 @@
-.card {
+.card1 {
   background: #fff;
   border-radius: 2px;
   height: 450px;
   margin-bottom: 40px;
   position: relative;
-  width: 70%;
+  width: 100%;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
   opacity: 0.75;
-  
+  margin-right: 200px;
  }
 
-.card > .img-container {
+.card1 > .img-container1 {
   height: 10%;
   overflow: hidden;
   text-align: center;
   background:#cee795;
 }
-.card > .img-container > img {
+.card1 > .img-container1 > img {
   width: 10%
 }
 
-h5, h6{
+h6{
   text-align: center;
   margin-top: 10px;
 }
 
-.card > .content {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.card1 > .content1 {
+  padding-left: 0.5rem;
+  padding-right: 1.5rem;
   font-size: 15px;
   align-self: left;
-}
-
-.card > .content > ul {
-  list-style-type: none;
-}
-
-.card > .content > ul > li {
-  margin-top: 10px;
+  margin-top: 5px;
   
 }
 
-.card > .remove {
+.card1 > .content1 > ul {
+  margin-right: 5px;
+  list-style-type: none;
+}
+
+.card1 > .content1 > ul > li {
+  margin-top: 5px;
+  
+  list-style-type: none;
+}
+
+.card1 > .remove {
   color: #ff1744;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: bold;
   position: absolute;
   /* top: -2px; */
   right: 5px;
   cursor: pointer;
-  background-color: rgb(107, 201, 201);
-  margin-top: 10px;
 }
 
 .card > .remove:hover {
   color: #d50000;
 }
 
-textarea{
-  margin-top: 20px;
+ul {
+  list-style-type: none;
 }

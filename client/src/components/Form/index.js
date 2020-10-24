@@ -1,12 +1,13 @@
 import axios from 'axios';
 import CityCard from '../CityCard';
+import InfoCard from '../InfoCard';
 import { useStoreContext } from '../../store/store';
 import React, { useState } from 'react';
 import './style.css';
 import {Link,useHistory} from 'react-router-dom';
 
 
-function Form (loggedIn) {
+function Form (userLoggedIn) {
   const history = useHistory();
 // Let us have cityInfo as a setState variable, set to empty object
 const [searchCityName, setSearchCityName] = useState({
@@ -15,7 +16,7 @@ const [searchCityName, setSearchCityName] = useState({
 const [citySafetyScores, setCitySafetyScores] = useState({});
 const [state, dispatch] = useStoreContext();
 console.log('State', state);
-console.log('Form:loggedIn', loggedIn)
+console.log('Form:loggedIn', userLoggedIn)
 // let scLgbtq = 0;
 // let scMedical =0;
 // let scOverall = 0;
@@ -36,54 +37,7 @@ const handleCitySearch = (event) => {
             console.log('response', response);
             console.log('safetyScores', response.data.safetyScores);
             setCitySafetyScores(response.data.safetyScores);
-            // for (property in response.data.safetyScores) {
-            //   switch (property) {
-            //     case 'lgbtq':
-            //       scLgbtq = response.safetyScores[property];
-            //       console.log('lgbtq',scLgbtq);
-            //       break;
-            //     case 'medical':
-            //      scMedical = response.safetyScores[property];
-            //      console.log('medical',scMedical);
-            //      break;
-            //     case 'overall':
-            //      scOverall = response.safetyScores[property];
-            //      console.log('overall',scOverall);
-            //      break;
-            //     case 'physicalHarm':
-            //     scPhysicalHarm = response.safetyScores[property];
-            //     console.log('physcicalHarm',scPhysicalHarm);
-            //     break; 
-            //     case 'politicalFreedom':
-            //      scPoliticalFreedom = response.safetyScores[property];
-            //      console.log('politicalFreedom',scPoliticalFreedom);
-            //      break;
-            //     case 'theft':
-            //      scTheft = response.safetyScores[property];
-            //      console.log('theft',scTheft);
-            //      break;
-            //     case 'women':
-            //     scWomen = response.safetyScores[property];
-            //     console.log('women',scWomen);
-            //     break; 
-            //    default:
-            //      console.log('default encountered');
-            //      break;
-            //   }
-            // }
-
-
-
-            //   setCitySafetyScores(...citySafetyScores, {
-            //     lgbtq: scLgbtq,
-            //     medical: scMedical,
-            //     overall: scOverall,
-            //     physicalHarm: scPhysicalHarm,
-            //     politicalFreedom: scPoliticalFreedom,
-            //     theft: scTheft,
-            //     women: scWomen,
-            //   } );
-               setCitySafetyScores(response.data.safetyScores);
+            setCitySafetyScores(response.data.safetyScores);
                console.log('response',response);
                console.log('response.data',response.data);
               console.log('state var',citySafetyScores);
@@ -130,7 +84,8 @@ const handleCitySearch = (event) => {
 };
 
 return (
-  <div className="col-md-5">
+  <div className="col-md-8
+  ">
 <form className="form-box2">
           <input
             value={searchCityName.cityName}
@@ -141,10 +96,12 @@ return (
           />
           <button onClick={handleCitySearch}>Submit</button>
           <p className="text2">
-           <br />Please use the following cities for testing purposes:<br />
+           <br />Please enter the following cities for testing purposes:<br />
 Bangalore, Barcelona, Berlin, Dallas, London, New York, San Francisco</p>
           
         </form>
+        <div className="row">
+        <div className="col-md-7">
         {citySafetyScores.overall && <CityCard 
          overall = {citySafetyScores.overall}
          medical = {citySafetyScores.medical}
@@ -156,11 +113,16 @@ Bangalore, Barcelona, Berlin, Dallas, London, New York, San Francisco</p>
          name = {searchCityName.cityName}
          saveFunc = {handleCitySave}
          removeButton = {false}
-         saveButton = {true} 
-         userLoggedIn = {loggedIn} 
+         saveButton = {true}         
          />}
-        
-      </div>
+         </div>
+         <div className="col-md-5">
+         {citySafetyScores.overall && <InfoCard />
+          }
+         </div>
+         </div>
+         </div>
+      
 );
 }
 export default Form;

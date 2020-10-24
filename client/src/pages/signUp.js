@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import '../stylesheets/style.css';
 
 const SignUp = () => {
   const history = useHistory();
@@ -37,9 +38,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="container-fluid col-md-6 mt-5">
+    <div className="container-fluid col-md-4 mt-5">
+        <h3>Sign Up</h3>
+    {/* <div className="container-fluid col-md-6 mt-5"> */}
     <div className="text-center">
-      <h4>Sign Up</h4>
+      {/* <h4>Sign Up</h4> */}
       <form className="form-signin">
         <label htmlFor="inputEmail" className="sr-only">
           Email address
@@ -65,7 +68,7 @@ const SignUp = () => {
           value={signUpCreds.password}
           onChange={handleChange}
         />
-        <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={handleSubmit}>
+        <button className="btn btn-lg btn-block" type="submit" onClick={handleSubmit}>
           Sign Up
         </button>
       </form>

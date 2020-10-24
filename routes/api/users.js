@@ -142,6 +142,7 @@ router.put("/saveCity", (req, res) => {
 //remove city from database
 router.put("/removeCity", (req, res) => {
   if (req.user) {
+    console.log('UserID!!!',req.body.userId);
     //del items to document
     User.findOneAndUpdate(
       { username: req.user.username },
@@ -177,4 +178,30 @@ router.get("/safeCities", (req, res) => {
   }
 });
 
+// save notes to db route
+router.put("/saveNotes", (req, res) => {
+  if (req.user) {
+
+    console.log('route /saveNotes hit')
+    console.log('req.body.visitNotes',req.body.EditInfo.visitNotes);
+    console.log('req.body.cityId',req.body.EditInfo.cityId);
+    User.findOneAndUpdate(
+      {username: req.user.username},
+      {$set: {"cities.$[el].visitNotes": req.body.visitNotes } },
+      {
+        arrayFilters: [{ "el._id": req.body.cityId }],
+        new: true
+      }
+    )
+      .then((response) => {
+        console.log('response',response);
+        res.json(response);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  } else {
+    res.status(404).json({ msg: "NO USER LOGGED IN" });
+  }
+});
 module.exports = router;

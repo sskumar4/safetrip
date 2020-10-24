@@ -14,6 +14,7 @@ function Wishlist(loggedIn) {
 // Setting our component's initial state
 const [cities, setCities] = useState([])
 const [formObject, setFormObject] = useState({})
+
   // Load all cities and store them with setCities
   useEffect(() => {
     loadCities()
@@ -37,6 +38,7 @@ const [formObject, setFormObject] = useState({})
     .catch(err => console.log(err));
 } 
 
+
  // Handles updating component state when the user types into the input field
  function handleInputChange(event) {
   const { name, value } = event.target;
@@ -59,16 +61,18 @@ const [formObject, setFormObject] = useState({})
 
 
     return (
-      <div className="container-fluid col-md-8 mt-5">
+      <div className="container-fluid col-md-9 mt-5">
       <Wrapper>
         <h3>My Travel Destination Wish List</h3>
         {cities.map(city => (
           <CityCard
             removeButton={true}
             saveButton={false}
+            editButton={true}
             removeCity = {delCity}
-            id={city.id}
-            key={city.id}
+            notes={city.visitNotes}
+            id={city._id}
+            key={city._id}
             name={city.name}
             overall={city.scOverall}
             medical={city.scMedical}
@@ -76,8 +80,9 @@ const [formObject, setFormObject] = useState({})
             lgbtq={city.scLgbtq}
             physicalHarm={city.scPhysicalHarm}
             politicalFreedom={city.scPoliticalFreedom}
-            theft={city.scTheft}           
+            theft={city.scTheft}
             userLoggedIn={loggedIn}
+            loadCities = {loadCities}
           />
         ))}
       </Wrapper>

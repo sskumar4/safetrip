@@ -9,7 +9,7 @@ body{
   color: black;
 }
 
-h4 {
+h3, h4 {
   text-align: center;
 }
 
@@ -33,4 +33,22 @@ img {
 .text-secondary{
   color: rgb(77, 13, 21);
  font-weight: bold;
+}
+
+.btn {
+background-color: rgb(77, 13, 21);
+opacity:0.5;
+color: white;
+}
+
+.navbar{
+  height: 100px;
+  position: relative;
+}
+
+.brand {
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;  /* 50% of your logo width */
+  display: block;
 }

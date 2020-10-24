@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
 import Navbar from './components/navbar';
-import Home from './pages/home';
 import Login from './pages/login';
 import Signup from './pages/signUp';
 import About from './pages/about';
@@ -11,6 +10,7 @@ import Wishlist from './pages/wishlist';
 import Footer from './components/Footer';
 import { LOADING, SET_USER, UNSET_USER } from './store/actions';
 import { useStoreContext } from './store/store';
+
 
 const App = () => {
   const history = useHistory();

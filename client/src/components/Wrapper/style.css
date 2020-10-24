@@ -5,9 +5,28 @@
   display: flex;
   flex-flow: row wrap;
   padding: 20px;
-  justify-content: space-around;
+  /* justify-content: space-around; */  
   align-content: flex-start;
   overflow: auto;
   border-radius: 25px;
   opacity: 0.75;
+  margin-bottom: 20px;
+}
+
+.right {
+  position: absolute;
+  right: 0; 
+  margin-bottom: 10px;
+
+  /* justify-content: right;
+  float: right;  */
+}
+
+.left{
+  /* position: absolute;
+  left: 0; */
+  justify-content: left;
+  margin-bottom: 10px;
+
+  /* float:left; */
 }
