@@ -62,8 +62,6 @@ const handleInputChange = (event) => {
         {state.user && props.editButton &&
         <form> 
           <h5>Want to add Visit Notes?</h5>
-          <label>
-        
            <textarea
             value={notes}
             name="notes"
@@ -71,15 +69,10 @@ const handleInputChange = (event) => {
             type="text"
             placeholder="Enter Visit Notes"
             />
-
-      </label>
-
         <br />
-        
         <button onClick= {()=> {saveNotes(props.id); }}>Edit/Save Notes</button>
         </form>}
         </div>
-        
       {state.user && props.removeButton && <span onClick={() => props.removeCity(props.id)} className="remove"> X
       </span>}
       {state.user && props.saveButton && <span onClick={() => {props.saveFunc(props.id);
