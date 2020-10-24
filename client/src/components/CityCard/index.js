@@ -15,6 +15,7 @@ function CityCard(props) {
 
 // saves a Note to the database with a given id, then reloads cities from the db
 const saveNotes = (id) => {
+  console.log('id',id);
   API.saveNotes(id,notes)
     .then(res => props.loadCities)
     .catch(err => console.log(err));
@@ -59,17 +60,23 @@ const handleInputChange = (event) => {
           </li>
         </ul>
         {state.user && props.editButton &&
-        <form>
-         
-          <textarea >
-            {/* value={notes}
+        <form> 
+          <h5>Want to add Visit Notes?</h5>
+          <label>
+        
+           <textarea
+            value={notes}
             name="notes"
             onChange={handleInputChange}
             type="text"
-            placeholder="Enter Visit Notes" */}
-        </textarea>
+            placeholder="Enter Visit Notes"
+            />
+
+      </label>
+
         <br />
-        <button onClick= {()=> {saveNotes(props.id, notes); history.push("/wishlist")}}>Edit/Save Notes</button>
+        
+        <button onClick= {()=> {saveNotes(props.id); }}>Edit/Save Notes</button>
         </form>}
         </div>
         
