@@ -56,9 +56,10 @@ const handleInputChange = (event) => {
           <li>
             <strong>Theft:</strong> {props.theft}
           </li>
+          {state.user && props.editButton &&
           <li>
             <strong>Visit Notes:</strong> {props.notes}
-          </li>
+          </li> }
         </ul>
         {state.user && props.editButton &&
         <form> 
