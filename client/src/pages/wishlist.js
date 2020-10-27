@@ -2,8 +2,6 @@ import React, {   useState, useEffect, Component } from "react";
 import API from "../utils/API";
 import CityCard from "./../components/CityCard";
 import Wrapper from "./../components/Wrapper";
-import Title from "./../components/Title";
-import cities from "./../cities.json";
 import {Link,useHistory} from 'react-router-dom';
 import { Input, TextArea, FormBtn } from "../components/Form";
 
@@ -45,27 +43,13 @@ const [formObject, setFormObject] = useState({})
   setFormObject({...formObject, [name]: value})
 };
 
- // When the form is submitted, use the API.saveCity method to save the city data
-  // Then reload books from the database
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.title && formObject.author) {
-      API.saveCity({
-        name: formObject.name,
-        overall: 40
-      })
-        .then(res => loadCities())
-        .catch(err => console.log(err));
-    }
-  };
-
-
-    return (
+return (
       <div className="container-fluid col-md-9 mt-5">
       <Wrapper>
         <h3>My Travel Destination Wish List</h3>
         {cities.map(city => (
           <CityCard
+            size="wishlist"
             removeButton={true}
             saveButton={false}
             editButton={true}
@@ -81,6 +65,7 @@ const [formObject, setFormObject] = useState({})
             physicalHarm={city.scPhysicalHarm}
             politicalFreedom={city.scPoliticalFreedom}
             theft={city.scTheft}
+            notes={city.visitNotes}
             userLoggedIn={loggedIn}
             loadCities = {loadCities}
           />

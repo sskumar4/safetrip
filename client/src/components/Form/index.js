@@ -96,13 +96,13 @@ return (
           />
           <button onClick={handleCitySearch}>Submit</button>
           <p className="text2">
-           <br />Please enter the following cities for testing purposes:<br />
-Bangalore, Barcelona, Berlin, Dallas, London, New York, San Francisco</p>
+           <br />Please enter the following cities for testing purposes:<br />Bangalore, Barcelona Spain, Berlin, Dallas, London, New York, San Francisco</p>
           
         </form>
         <div className="row">
         <div className="col-md-7">
         {citySafetyScores.overall && <CityCard 
+         size="form"
          overall = {citySafetyScores.overall}
          medical = {citySafetyScores.medical}
          women = {citySafetyScores.women}

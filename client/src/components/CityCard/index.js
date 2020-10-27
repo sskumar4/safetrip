@@ -9,26 +9,24 @@ function CityCard(props) {
   const [state, dispatch] = useStoreContext();
   const history = useHistory();
   console.log('CityCard:loggedIn', props.userLoggedIn)
-  const [notes, setNotes] = useState({
-    "notes":"",
-  });
+  const [notes, setNotes] = useState(props.notes);
 
 // saves a Note to the database with a given id, then reloads cities from the db
 const saveNotes = (id) => {
   console.log('id',id);
   API.saveNotes(id,notes)
-    .then(res => props.loadCities)
+    .then(res => props.loadCities())
     .catch(err => console.log(err));
 } 
 
 const handleInputChange = (event) => {
   const { name, value } = event.target;
-  setNotes({ ...notes, [name]: value });
+  setNotes(value);
   console.log('notes', notes);
 };
 
   return (
-    <div className="card">
+    <div className="card {props.size}">
       <div className="img-container">
       <h6><strong>City Safety Rating</strong></h6>
       </div>
@@ -58,6 +56,9 @@ const handleInputChange = (event) => {
           <li>
             <strong>Theft:</strong> {props.theft}
           </li>
+          <li>
+            <strong>Visit Notes:</strong> {props.notes}
+          </li>
         </ul>
         {state.user && props.editButton &&
         <form> 
@@ -70,7 +71,7 @@ const handleInputChange = (event) => {
             placeholder="Enter Visit Notes"
             />
         <br />
-        <button onClick= {()=> {saveNotes(props.id); }}>Edit/Save Notes</button>
+        <button onClick= {(e)=> {e.preventDefault(); saveNotes(props.id)}}>Edit/Save Notes</button>
         </form>}
         </div>
       {state.user && props.removeButton && <span onClick={() => props.removeCity(props.id)} className="remove"> X

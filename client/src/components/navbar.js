@@ -33,13 +33,8 @@ const Navbar = () => {
       {/* <a className="navbar-brand" href="/">
     <img src={safetrip} alt="Safetrip logo" /></a> */}
   
-      <Link to="/" className="btn btn-link text-secondary">
-        <span className="text-secondary glyphicon glyphicon-home">home</span>
-      </Link>
-      <Link to="/about" className="btn btn-link text-secondary">
-        <span className="text-secondary">about</span>
-      </Link>
-      <button
+   
+      {/* <button
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -49,10 +44,26 @@ const Navbar = () => {
         aria-label="Toggle navigation"
       >
         <span className="navbar-toggler-icon"></span>
+      </button> */}
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span className="navbar-toggler-icon"></span>
       </button>
+
       <div className="collapse navbar-collapse w-100 order-1 order-lg-0" id="navbarNav">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+          <Link to="/" className="btn btn-link text-secondary">
+        <span className="text-secondary glyphicon glyphicon-home">home</span>
+        </Link>      
+          </li>
+          <li className="nav-item">
+          <Link to="/about" className="btn btn-link text-secondary">
+        <span className="text-secondary">about</span>
+         </Link>
+          </li>
           {state.user ? (
+
+
 
             <li className="nav-item active">
                 <Link to="/wishlist" className="btn btn-link">
@@ -83,9 +94,7 @@ const Navbar = () => {
         </div>
     <div className="d-flex w-100 order-0">
         <div className="w-100">
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span className="navbar-toggler-icon"></span>
-            </button>
+           
         </div>
         
         {/* <a className="brand" href="/">

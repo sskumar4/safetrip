@@ -61,7 +61,7 @@ const App = () => {
           {/* <Route exact path="/safetrip" render={props => <Safetrip {...props} loggedIn={loggedInAs.loggedOn} />} />
           <Route exact path="/wishlist" component={Wishlist} /> */}
            <Route exact path="/safetrip" render={props => <Safetrip {...props} loggedIn={loggedInAs.loggedOn} />} />
-          <Route exact path="/wishlist" render={props => <Wishlist {...props} loggedIn={loggedInAs.loggedOn} />} />
+          {/* <Route exact path="/wishlist" render={props => <Wishlist {...props} loggedIn={loggedInAs.loggedOn} />} /> */}
           <Redirect to="/safetrip" />
         </Switch>
       )}

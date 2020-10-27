@@ -40,6 +40,13 @@ background-color: rgb(77, 13, 21);
 opacity:0.5;
 color: white;
 }
+.left{
+  float: left;
+}
+/* .right{
+  float: right;
+} */
+
 
 .navbar{
   height: 100px;

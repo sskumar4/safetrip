@@ -20,6 +20,7 @@ export default {
   },
 
   saveNotes: function(cityId, notes) {
+    // notes = "Berlin is the best city";
     return axios.put("/api/users/saveNotes", {editInfo: {cityId:cityId, visitNotes: notes}});
   }
 };

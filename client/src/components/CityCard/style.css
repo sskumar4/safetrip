@@ -1,14 +1,21 @@
 .card {
   background: #fff;
   border-radius: 2px;
-  height: 450px;
+  min-height: 450px;
   margin-bottom: 40px;
   position: relative;
-  width: 70%;
+  /* width: 70%; */
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
   opacity: 0.75;
   
+ }
+ .wishlist{
+   width: 50%; 
+
+ }
+ .form{
+   width:100%;
  }
 
 .card > .img-container {

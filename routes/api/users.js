@@ -182,14 +182,15 @@ router.get("/safeCities", (req, res) => {
 router.put("/saveNotes", (req, res) => {
   if (req.user) {
 
-    console.log('route /saveNotes hit')
-    console.log('req.body.visitNotes',req.body.EditInfo.visitNotes);
-    console.log('req.body.cityId',req.body.EditInfo.cityId);
+    console.log('route /saveNotes hit');
+    console.log('req',req);
+    console.log('req.body.visitNotes',req.body.editInfo.visitNotes);
+    console.log('req.body.cityId',req.body.editInfo.cityId);
     User.findOneAndUpdate(
       {username: req.user.username},
-      {$set: {"cities.$[el].visitNotes": req.body.visitNotes } },
+      {$set: {"cities.$[el].visitNotes": req.body.editInfo.visitNotes } },
       {
-        arrayFilters: [{ "el._id": req.body.cityId }],
+        arrayFilters: [{ "el._id": req.body.editInfo.cityId }],
         new: true
       }
     )
