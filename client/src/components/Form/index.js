@@ -4,17 +4,17 @@ import InfoCard from '../InfoCard';
 import { useStoreContext } from '../../store/store';
 import React, { useState } from 'react';
 import './style.css';
-import {Link,useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 
 
 function Form (userLoggedIn) {
-  const history = useHistory();
+  // const history = useHistory();
 // Let us have cityInfo as a setState variable, set to empty object
 const [searchCityName, setSearchCityName] = useState({
   "cityName":"",
 });
 const [citySafetyScores, setCitySafetyScores] = useState({});
-const [state, dispatch] = useStoreContext();
+const [state] = useStoreContext();
 console.log('State', state);
 console.log('Form:loggedIn', userLoggedIn)
 // let scLgbtq = 0;
