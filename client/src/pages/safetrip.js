@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import Form from '../components/Form';
 import '../stylesheets/style.css';
 import { useStoreContext } from '../store/store';
-import InfoCard from '../components/InfoCard';
 
 const Safetrip = (loggedIn) => {
 
-  const [state, dispatch] = useStoreContext();
+  const [state] = useStoreContext();
 
   console.log('safeTrip:loggedIn', loggedIn)
     return (

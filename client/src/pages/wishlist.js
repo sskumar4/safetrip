@@ -1,13 +1,11 @@
-import React, {   useState, useEffect, Component } from "react";
+import React, {   useState, useEffect} from "react";
 import API from "../utils/API";
 import CityCard from "./../components/CityCard";
 import Wrapper from "./../components/Wrapper";
-import {Link,useHistory} from 'react-router-dom';
-import { Input, TextArea, FormBtn } from "../components/Form";
-
+// import {useHistory} from 'react-router-dom';
 
 function Wishlist(loggedIn) {
-  const history = useHistory();
+  // const history = useHistory();
 
 // Setting our component's initial state
 const [cities, setCities] = useState([])
@@ -47,6 +45,7 @@ return (
       <div className="container-fluid col-md-9 mt-5">
       <Wrapper>
         <h3>My Travel Destination Wish List</h3>
+        <br />
         {cities.map(city => (
           <CityCard
             size="wishlist"
@@ -74,6 +73,5 @@ return (
       </div>
     );
   }
-
 
 export default Wishlist;

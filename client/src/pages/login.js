@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Wrapper from '../components/Wrapper';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { LOADING, SET_USER } from '../store/actions';
