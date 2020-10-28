@@ -6,7 +6,7 @@ import API from "../../utils/API";
 
 
 function CityCard(props) {
-  const [state, dispatch] = useStoreContext();
+  const [state] = useStoreContext();
   const history = useHistory();
   console.log('CityCard:loggedIn', props.userLoggedIn)
   const [notes, setNotes] = useState(props.notes);
@@ -20,7 +20,7 @@ const saveNotes = (id) => {
 } 
 
 const handleInputChange = (event) => {
-  const { name, value } = event.target;
+  const { value } = event.target;
   setNotes(value);
   console.log('notes', notes);
 };

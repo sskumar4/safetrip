@@ -9,8 +9,7 @@ function Wishlist(loggedIn) {
 
 // Setting our component's initial state
 const [cities, setCities] = useState([])
-const [formObject, setFormObject] = useState({})
-
+// const [formObject, setFormObject] = useState({})
   // Load all cities and store them with setCities
   useEffect(() => {
     loadCities()
@@ -36,11 +35,7 @@ const [formObject, setFormObject] = useState({})
 
 
  // Handles updating component state when the user types into the input field
- function handleInputChange(event) {
-  const { name, value } = event.target;
-  setFormObject({...formObject, [name]: value})
-};
-
+//  
 return (
       <div className="container-fluid col-md-9 mt-5">
       <Wrapper>
